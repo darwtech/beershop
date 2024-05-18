@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./js/firedatabase.js"></script>
+    <script type="module" src="./js/controller.js"></script>
+    <title>BeerShop</title>
+</head>
+<body>
+    <!-- Navegación Superior -->
+    <nav class="bg-yellow-400 p-4 flex items-center justify-between">
+        <div>
+            <h1 class="text-white text-xl font-semibold">BEERSHOP</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="text-white">Bienvenido Admintrador</span>
+            <i class="fas fa-user-circle text-white text-2xl"></i>
+            <a href="index.html" class="text-white">Salir</a>
+        </div>
+    </nav>
+
+    <!-- Contenedor principal -->
+    <div class="flex items-center justify-center mt-8">
+        <!-- Formulario -->
+        <div class="w-1/2 px-4">
+            <form class="bg-white shadow-lg rounded px-12 pt-6 pb-8 mb-4" id="formulario-producto">
+                <div class="text-gray-800 text-2xl flex justify-center border-b-2 py-2 mb-4">
+                    INGRESAR PRODUCTOS
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-normal mb-2" for="img-in">
+                        Imagen
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="file"
+                        id="img-in"
+                        accept="image/*"
+                        required
+                    />
+                </div>
+        
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-normal mb-2" for="txt-nombre">
+                        Producto
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="Nombre del Producto"
+                        id="txt-nombre"
+                        required
+                    />
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-normal mb-2" for="txt-precio">
+                        Precio
+                    </label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="$ Precio"
+                        id="txt-precio"
+                        required
+                    />
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="px-4 py-2 rounded text-white inline-block shadow-lg bg-blue-500 hover:bg-blue-600 focus:bg-blue-700" type="submit">Ingresar</button>
+                </div>
+            </form>
+        </div>
+
+       <!-- Tabla de productos -->
+       <div class="w-1/2 px-4">
+        <div class="bg-yellow-400 text-white px-4 py-2 mb-4 text-center">Lista de Productos</div>
+        <table class="table-auto mx-auto">
+            <thead>
+                <tr>
+                    <th scope="col" class="px-4 py-2">Imagen</th>
+                    <th scope="col" class="px-4 py-2">Nombre</th>
+                    <th scope="col" class="px-4 py-2">Precio</th>
+                    <th scope="col" class="px-4 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-productos" class="text-center">
+                <!-- Aquí se mostrarán los datos -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Plantilla para las filas de la tabla -->
+<template id="fila-producto">
+    <tr>
+        <td><img src="" alt="Imagen del Producto" width="100"></td>
+        <td></td>
+        <td></td>
+        <td>
+            <button class="px-4 py-2 rounded text-white inline-block shadow-lg bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 modificar-btn">Modificar</button>
+            <button class="px-4 py-2 rounded text-white inline-block shadow-lg bg-red-500 hover:bg-red-600 focus:bg-red-700 eliminar-btn">Eliminar</button>
+        </td>
+    </tr>
+</template>
+</body>
+</html>
